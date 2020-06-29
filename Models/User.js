@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema(
     },
     encry_password: {
       type: String,
-      required: true,
       min: 6,
     },
     salt: String,

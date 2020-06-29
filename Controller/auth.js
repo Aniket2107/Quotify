@@ -17,9 +17,9 @@ exports.signUp = (req, res) => {
   });
 
   const newUser = new User(req.body);
+
   newUser.save((err, user) => {
-    if (err || !user)
-      return res.status(400).json({ error: "Error saving user in Db" });
+    if (err) return res.status(400).json({ error: "Error saving user in Db" });
 
     res.send({
       username: user.username,

@@ -8,9 +8,9 @@ const quoteSchema = new mongoose.Schema(
     },
     //Todo
     category: {
-      type: Array,
-      default: [],
+      type: [{ type: Schema.Types.ObjectId, ref: "Category" }],
     },
+
     author: {
       type: String,
       default: "Unknown",
