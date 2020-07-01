@@ -18,7 +18,7 @@ router.param("categoryId", getCategoryById);
 
 router.get("/quotes", getAllQuotes);
 router.get("/quote/:quoteId", getQuote);
-router.get("/quotes/:categoryId", getQuotesFromCategory);
+router.get("/quotes/category/:categoryId", getQuotesFromCategory);
 router.post("/quote/create/:userId", isSignedIn, isAuthenticated, createQuote);
 router.put(
   "/quote/update/:quoteId/:userId",

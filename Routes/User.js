@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 const { getUserbyId, getaUser } = require("../Controller/User");
 
-router.param("userId", getUserById);
+router.param("userId", getUserbyId);
 
 router.get("/user/:userId", getaUser);
 

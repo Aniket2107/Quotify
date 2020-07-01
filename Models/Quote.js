@@ -8,7 +8,7 @@ const quoteSchema = new mongoose.Schema(
     },
     //Todo
     category: {
-      type: [{ type: Schema.Types.ObjectId, ref: "Category" }],
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
     },
 
     author: {

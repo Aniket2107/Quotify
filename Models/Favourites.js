@@ -6,9 +6,9 @@ const favSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "User",
   },
-  category: {
+  quote: {
     type: ObjectId,
-    ref: "Category",
+    ref: "Quote",
   },
 });
 

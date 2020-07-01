@@ -9,6 +9,10 @@ require("dotenv").config();
 
 //Routes
 const authRoute = require("./Routes/auth");
+const userRoute = require("./Routes/User");
+const quoteRoute = require("./Routes/Quote");
+const catRoute = require("./Routes/Category");
+const favRoute = require("./Routes/Favourites");
 
 //mongo connect
 mongoose.connect(
@@ -28,6 +32,10 @@ app.use(cors());
 
 //Routes
 app.use("/api", authRoute);
+app.use("/api", userRoute);
+app.use("/api", quoteRoute);
+app.use("/api", catRoute);
+app.use("/api", favRoute);
 
 const PORT = process.env.PORT;
 

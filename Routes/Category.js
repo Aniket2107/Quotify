@@ -8,11 +8,12 @@ const {
   updateCaategory,
   removeCategory,
 } = require("../Controller/Category");
+const Category = require("../Models/Category");
 
 router.param("categoryId", getCategoryById);
 router.param("userId", getUserbyId);
 
-router.get("/categories", isSignedIn, isAuthenticated, getAllCategories);
+router.get("/categories", getAllCategories);
 router.post(
   "/category/create/:userId",
   isSignedIn,

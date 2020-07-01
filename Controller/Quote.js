@@ -14,16 +14,18 @@ exports.getQuoteById = (req, res, next, id) => {
 };
 
 exports.getAllQuotes = (req, res) => {
-  Quote.find().exec((err, quotes) => {
-    if (err || !quotes)
-      return res.status(400).json({ error: "No quotes found" });
+  Quote.find()
+    .populate("category", "categoryName")
+    .exec((err, quotes) => {
+      if (err || !quotes)
+        return res.status(400).json({ error: "No quotes found" });
 
-    res.send(quotes);
-  });
+      res.send(quotes);
+    });
 };
 
 exports.getQuotesFromCategory = (req, res) => {
-  Quote.findOne({ category: req.category.categoryName }).exec((err, quotes) => {
+  Quote.find({ category: req.category }).exec((err, quotes) => {
     if (err || !quotes)
       return res.status(400).json({ error: "NO quotes found" });
 
