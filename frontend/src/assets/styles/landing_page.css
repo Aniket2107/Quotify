@@ -91,7 +91,9 @@ html,body{
 .explore{
     min-height: 100vh;
     padding-top: 10vh;
-    background: black;
+    background: url('../images/explore_bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .quote{
