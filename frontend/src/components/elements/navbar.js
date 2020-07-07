@@ -8,7 +8,7 @@ export default class Navbar extends Component {
         return (
             <nav className="">
                 <div className="navbar navbar-expand navbar-dark nav-bg-dark fixed-top">
-                    <div class="nav navbar-nav container">
+                    <div className="nav navbar-nav container">
                         <div className="d-flex justify-content-center">        
                             <Link to="/">
                                 <h1 className="nav-item nav-brand nav-link active">Quotify</h1>
@@ -19,13 +19,13 @@ export default class Navbar extends Component {
                                 <li className="nav-item nav-link active">Home</li>
                             </Link>
                             <Link to="/explore">
-                                <li className="nav-item nav-link">Explore</li>
+                                <li className="nav-item nav-link active">Explore</li>
                             </Link>
                             <Link to="/team">
-                                <li className="nav-item nav-link">Team</li>
+                                <li className="nav-item nav-link active">Team</li>
                             </Link>
                             <Link to="/">
-                                <li className="nav-item nav-link">Sign In</li>
+                                <li className="nav-item nav-link active">Sign In</li>
                             </Link>
                         </div>
                     </div>

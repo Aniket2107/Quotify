@@ -6,6 +6,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: comfortzoaa;
 }
   
 html,body{
@@ -34,6 +35,7 @@ html,body{
     text-align: end;
     margin: 0 100px;
 }
+
 .hero-tagline{
     margin: 0 100px;
 }
@@ -47,20 +49,64 @@ html,body{
     color:white;
     border: 1px solid white;
 }
+
 .btn-cta:hover{
     color: black;
     background: white;
 }
 
-.services{
+.services, .moody, .footer{
     width: 100vw;
+    min-height: 100vh;
+    background: rgba(255,255,255,.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.moody{
     height: 100vh;
+    font-family: comfortzoaa;
+    font-size: 5rem;
+    background: url('../images/Moody_hero_bg.jpg');
+    background-size: cover;
+}
+
+.services_heading{
+    font-family: comfortzoaa;
+    font-size: 4rem;
+    margin-bottom: 5vh;
+}
+.footer{
+    min-height: 60vh;
+    background: rgba(0,0,0,.8);
+    color: white;
+    position: relative;
+    bottom: 0;
+}
+
+
+
+/* Explore Section */
+.explore{
+    min-height: 100vh;
+    padding-top: 10vh;
+    background: black;
+}
+
+.quote{
+    min-height: 30vh;
+    margin: 2vh 0;
+}
+
+.quote .card-body{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.services_heading{
-    font-family: comfortzoaa;
+.quote .card-body .card-author{
+    width: 100%;
+    text-align: right;
 }
