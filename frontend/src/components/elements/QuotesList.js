@@ -25,7 +25,7 @@ const QuotesList = () => {
             color: 'white'
         },
         {
-            id: 3,
+            id: 4,
             quote: 'And we don`t give a damn about what they say!' ,
             author: 'Aniket Habib',
             background: '#1f639b',

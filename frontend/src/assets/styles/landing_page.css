@@ -1,18 +1,25 @@
 @font-face {
-    font-family: comfortzoaa;
+    font-family: comfortaa
+    ;
     src: url(../fonts/Comfortaa-VariableFont_wght.ttf);
   }
 
 *{
     margin: 0;
     padding: 0;
-    font-family: comfortzoaa;
+    font-family: comfortaa
+    ;
 }
   
 html,body{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
+
+
+/* Home Section */
+
 
 .hero{
     height: 100vh;
@@ -28,7 +35,8 @@ html,body{
 
 .hero-heading{
     color: white;
-    font-family: comfortzoaa;
+    font-family: comfortaa
+    ;
     font-size: 5rem;
     width: 50%;
     min-width: 300px;
@@ -66,23 +74,45 @@ html,body{
 }
 .moody{
     height: 100vh;
-    font-family: comfortzoaa;
+    font-family: comfortaa
+    ;
     font-size: 5rem;
     background: url('../images/Moody_hero_bg.jpg');
     background-size: cover;
 }
 
 .services_heading{
-    font-family: comfortzoaa;
+    font-family: comfortaa
+    ;
     font-size: 4rem;
     margin-bottom: 5vh;
 }
 .footer{
-    min-height: 60vh;
+    min-height: 40vh;
     background: rgba(0,0,0,.8);
     color: white;
     position: relative;
     bottom: 0;
+}
+
+
+/* Home Responsive */
+
+@media only screen and (max-width: 600px){
+    
+    .hero{
+        align-items: center;
+        background-position: -500px 0;
+    }
+
+    .hero-heading{
+        font-size: 7vh;
+        width: 50%;
+        min-width: 300px;
+        text-align: center;
+        margin: 0 100px;
+    }
+    
 }
 
 
@@ -98,7 +128,7 @@ html,body{
 
 .quote{
     min-height: 30vh;
-    margin: 2vh 0;
+    margin: 2vh 10px;
 }
 
 .quote .card-body{
