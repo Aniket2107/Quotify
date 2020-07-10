@@ -6,14 +6,18 @@ require("dotenv").config();
 
 exports.signUp = (req, res) => {
   //Validation
-  const errors = validationResult(req.body);
+  const errors = validationResult(req);
+  console.log(errors);
   if (!errors.isEmpty())
     return res
       .status(400)
-      .json({ err: errors.array()[0].msg, prms: errors.array()[0].param });
+      .json({ error: errors.array()[0].msg, prms: errors.array()[0].param });
+
   const { username } = req.body;
   User.findOne({ username }, (err, user) => {
-    if (user) return res.status(400).json({ Error: "Username already taken" });
+    if (err) return res.status(400).json({ error: "Failed to find user" });
+
+    if (user) return res.status(400).json({ error: "Username already taken" });
   });
 
   const newUser = new User(req.body);
@@ -31,16 +35,16 @@ exports.signUp = (req, res) => {
 
 exports.signIn = (req, res) => {
   //Validation
-  const errors = validationResult(req.body);
+  const errors = validationResult(req);
   if (!errors.isEmpty())
     return res
       .status(400)
-      .json({ err: errors.array()[0].msg, prms: errors.array()[0].param });
+      .json({ error: errors.array()[0].msg, prms: errors.array()[0].param });
 
   const { username, password } = req.body;
 
   User.findOne({ username }, (err, user) => {
-    if (err) return res.status(400).json({ err: err });
+    if (err) return res.status(400).json({ error: err });
 
     if (!user) return res.status(400).json({ error: "User not fouond" });
 

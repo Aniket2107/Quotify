@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema(
     isAdult: {
       type: Boolean,
       default: false,
-      required: true,
     },
     interests: {
       type: Array,
