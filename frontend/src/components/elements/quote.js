@@ -13,11 +13,8 @@ const Quote = props => {
                     <div className='card-author'>
                         <p className="card-text">~{props.author}</p>
                     </div>
-                    {/* <a href="#" class="btn btn-primary">Button</a> */}
-
                 </div>
-
-                </div>
+            </div>
         </div>
     )
 }

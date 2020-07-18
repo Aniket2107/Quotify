@@ -3,41 +3,6 @@ import { Link } from "react-router-dom";
 import "../../assets/styles/nav.css";
 
 export default class Navbar extends Component {
-<<<<<<< HEAD
-  render() {
-    return (
-      <nav className="">
-        <div className="navbar navbar-expand navbar-dark nav-bg-dark fixed-top">
-          <div className="nav navbar-nav container">
-            <div className="d-flex justify-content-center">
-              <Link to="/">
-                <h1 className="nav-item nav-brand nav-link active">Quotify</h1>
-              </Link>
-            </div>
-            <div className="d-flex justify-content-center">
-              <Link to="/">
-                <li className="nav-item nav-link active">Home</li>
-              </Link>
-              <Link to="/explore">
-                <li className="nav-item nav-link">Explore</li>
-              </Link>
-              <Link to="/team">
-                <li className="nav-item nav-link">Team</li>
-              </Link>
-              <Link to="/signin">
-                <li className="nav-item nav-link">Sign In</li>
-              </Link>
-              <Link to="/signout">
-                <li className="nav-item nav-link">Signout</li>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
-}
-=======
     constructor(props) {
         super(props);
         this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -76,8 +41,11 @@ export default class Navbar extends Component {
                             <Link to="/team">
                                 <li className="nav-item nav-link active">Team</li>
                             </Link>
-                            <Link to="/">
+                            <Link to="/signin">
                                 <li className="nav-item nav-link active">Sign In</li>
+                            </Link>
+                            <Link to="/signup">
+                                <li className="nav-item nav-link active">Sign Up</li>
                             </Link>
                         </div>
                     </div>
@@ -86,4 +54,3 @@ export default class Navbar extends Component {
         )
     }
 }
->>>>>>> c816c211e1c6080ccb2f4c957d0d2c3909ff10a9

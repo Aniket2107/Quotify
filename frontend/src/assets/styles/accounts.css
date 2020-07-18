@@ -1,0 +1,27 @@
+.form-container{
+    background: url('../images/signIn_bg.jpg');
+    background-size: cover;
+    padding: 2rem;
+    color: white;
+}
+.btn-outline-dark{
+    color: white;
+    background: black;
+    transition: all 0.5s ease-in-out;
+    border-color: white;
+    border-radius: 20px 20px;
+    font-size: 1.5rem;
+}
+.btn-outline-dark:hover{
+    color: black;
+    background: #fff;
+    border-radius: 20px 20px 0;
+}
+
+@media only screen and (max-width: 600px){
+    .form-container{
+        background-position: -600px 0;
+    }
+    .form{
+    }
+}

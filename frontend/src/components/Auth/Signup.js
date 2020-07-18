@@ -1,6 +1,26 @@
 import React, { useState } from "react";
 import { signupHelper } from "./helper";
 import { Link } from "react-router-dom";
+import '../../assets/styles/accounts.css';
+// Styles
+
+const formContainerStyle = {
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: 'auto'
+}
+
+const formStyle = {
+  width:'500px',
+  maxWidth: '500px',
+  padding: '40px 20px',
+  background: 'rgba(0,0,0,.8)',
+  boxShadow: '0px 0 20px black'
+}
+
+// styles end
 
 const SignUp = () => {
   const [values, setValues] = useState({
@@ -41,10 +61,11 @@ const SignUp = () => {
   const signupform = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-12 text-left">
+          <br/>
           <form>
             <div className="form-group">
-              <label className="text-dark">Name</label>
+              <label className="text-white">Username</label>
               <input
                 className="form-control"
                 type="text"
@@ -53,7 +74,7 @@ const SignUp = () => {
               />
             </div>
             <div className="form-group">
-              <label className="text-dark">Email</label>
+              <label className="text-white">Email</label>
               <input
                 className="form-control"
                 type="email"
@@ -62,7 +83,7 @@ const SignUp = () => {
               />
             </div>
             <div className="form-group">
-              <label className="text-dark">Password</label>
+              <label className="text-white">Password</label>
               <input
                 className="form-control"
                 type="password"
@@ -70,7 +91,8 @@ const SignUp = () => {
                 value={password}
               />
             </div>
-            <button onClick={onSubmit} className="btn btn-success btn-block">
+            <br />
+            <button onClick={onSubmit} className="btn btn-outline-dark btn-block">
               Submit
             </button>
           </form>
@@ -87,7 +109,7 @@ const SignUp = () => {
             className="alert alert-success"
             style={{ display: success ? "" : "none" }}
           >
-            New account was created successfully. Please
+            New account was created successfully. Please  
             <Link to="/signin">Login Here</Link>
           </div>
         </div>
@@ -98,7 +120,7 @@ const SignUp = () => {
   const errorMessage = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-12 text-left">
           <div
             className="alert alert-danger"
             style={{ display: error ? "" : "none" }}
@@ -109,13 +131,25 @@ const SignUp = () => {
       </div>
     );
   };
+  const SignUpHeading = () => {
+    return (
+      <div className="row">
+        <div className="col-md-12 text-left">
+          <h1>Sign Up</h1>
+          <br />
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="container mt-4">
-      {errorMessage()}
-      {successMessage()}
-      {signupform()}
-      <p className="text-dark text-center">{JSON.stringify(values)}</p>
+    <div className="form-container" style={formContainerStyle}>
+      <div style={formStyle} className='form'>
+        {SignUpHeading()}
+        {errorMessage()}
+        {successMessage()}
+        {signupform()}
+      </div>
     </div>
   );
 };

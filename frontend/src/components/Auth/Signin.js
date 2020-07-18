@@ -1,6 +1,26 @@
 import React, { useState } from "react";
 import { signin, authenticate, isAuthenticated } from "./helper";
 import { Redirect, Link } from "react-router-dom";
+import '../../assets/styles/accounts.css';
+// Styles
+
+const formContainerStyle = {
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: 'auto'
+}
+
+const formStyle = {
+  width:'500px',
+  maxWidth: '500px',
+  padding: '40px 20px',
+  background: 'rgba(0,0,0,.8)',
+  boxShadow: '0px 0 20px black'
+}
+
+// styles end
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -80,9 +100,8 @@ const Signin = () => {
 
   const notaUser = () => {
     return (
-      <div className="alert alert-info">
-        Not a user?
-        <Link to="/signup">Signup here</Link>
+      <div className="">
+        Not a user? <Link to="/signup" className='text-info'>Signup here</Link>
       </div>
     );
   };
@@ -90,10 +109,12 @@ const Signin = () => {
   const signInForm = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-12 text-left">
+          <h1>Sign In</h1>
+          <br/>
           <form>
             <div className="form-group">
-              <label className="text-dark">Username</label>
+              <label className="text-white">Username</label>
               <input
                 onChange={handleChange("username")}
                 value={username}
@@ -103,7 +124,7 @@ const Signin = () => {
             </div>
 
             <div className="form-group">
-              <label className="text-dark">Password</label>
+              <label className="text-white">Password</label>
               <input
                 onChange={handleChange("password")}
                 value={password}
@@ -111,9 +132,11 @@ const Signin = () => {
                 type="password"
               />
             </div>
-            <button onClick={onSubmit} className="btn btn-success btn-block">
+            <br/>
+            <button onClick={onSubmit} className="btn btn-outline-dark btn-block">
               Submit
             </button>
+            <br/>
           </form>
         </div>
       </div>
@@ -121,14 +144,14 @@ const Signin = () => {
   };
 
   return (
-    <div className="contaier">
-      {loadingMessage()}
-      {errorMessage()}
-      {signInForm()}
-      {notaUser()}
-      {performRedirect()}
-
-      <p className="text-dark text-center">{JSON.stringify(values)}</p>
+    <div className="form-container" style={formContainerStyle}>
+      <div style={formStyle}>
+        {loadingMessage()}
+        {errorMessage()}
+        {signInForm()}
+        {notaUser()}
+        {performRedirect()}
+      </div>
     </div>
   );
 };
