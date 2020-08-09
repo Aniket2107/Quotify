@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { signupHelper } from "./helper";
 import { Link } from "react-router-dom";
-import '../../assets/styles/accounts.css';
+import "../../assets/styles/accounts.css";
 // Styles
 
 const formContainerStyle = {
-  height: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: 'auto'
-}
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "auto",
+};
 
 const formStyle = {
-  width:'500px',
-  maxWidth: '500px',
-  padding: '40px 20px',
-  background: 'rgba(0,0,0,.8)',
-  boxShadow: '0px 0 20px black'
-}
+  width: "500px",
+  maxWidth: "500px",
+  padding: "40px 20px",
+  background: "rgba(0,0,0,.8)",
+  boxShadow: "0px 0 20px black",
+};
 
 // styles end
 
@@ -27,7 +27,7 @@ const SignUp = () => {
     username: "",
     email: "",
     password: "",
-    error: true,
+    error: false,
     success: false,
   });
 
@@ -62,7 +62,7 @@ const SignUp = () => {
     return (
       <div className="row">
         <div className="col-md-12 text-left">
-          <br/>
+          <br />
           <form>
             <div className="form-group">
               <label className="text-white">Username</label>
@@ -92,7 +92,10 @@ const SignUp = () => {
               />
             </div>
             <br />
-            <button onClick={onSubmit} className="btn btn-outline-dark btn-block">
+            <button
+              onClick={onSubmit}
+              className="btn btn-outline-dark btn-block"
+            >
               Submit
             </button>
           </form>
@@ -109,7 +112,7 @@ const SignUp = () => {
             className="alert alert-success"
             style={{ display: success ? "" : "none" }}
           >
-            New account was created successfully. Please  
+            New account was created successfully. Please
             <Link to="/signin">Login Here</Link>
           </div>
         </div>
@@ -144,7 +147,7 @@ const SignUp = () => {
 
   return (
     <div className="form-container" style={formContainerStyle}>
-      <div style={formStyle} className='form'>
+      <div style={formStyle} className="form">
         {SignUpHeading()}
         {errorMessage()}
         {successMessage()}

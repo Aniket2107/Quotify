@@ -9,6 +9,7 @@ import AdminRoute from "../PrivateRoutes/AdminRoute";
 import UserRoute from "../PrivateRoutes/UserRoute";
 import adminDashboard from "../Admin/adminDashboard";
 import userDashboard from "../User/userDashboard";
+import AddQuote from "../User/AddQuote";
 
 export default class LandingPage extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class LandingPage extends Component {
             <Route path="/explore" component={Explore} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
+            <Route path="/create/quote" component={AddQuote} />
             <UserRoute path="/user/profile" component={userDashboard} />
             <AdminRoute path="/admin/profile" component={adminDashboard} />
             {/* <Route path="/team" component={Team}/> */}
@@ -29,28 +31,28 @@ export default class LandingPage extends Component {
       </Router>
     );
   }
-// import React, { Component } from 'react';
-// import { BrowserRouter as Router ,Switch, Route } from 'react-router-dom';
-// import Home from '../../components/sections/home';
-// import Explore from '../../components/sections/explore';
-// import Navbar from '../../components/elements/navbar';
-// import Footer from '../elements/Footer';
-// import '../../assets/styles/landing_page.css';
+  // import React, { Component } from 'react';
+  // import { BrowserRouter as Router ,Switch, Route } from 'react-router-dom';
+  // import Home from '../../components/sections/home';
+  // import Explore from '../../components/sections/explore';
+  // import Navbar from '../../components/elements/navbar';
+  // import Footer from '../elements/Footer';
+  // import '../../assets/styles/landing_page.css';
 
-// export default class LandingPage extends Component {
-//     render() {
-//         return (
-//             <Router>
-//                 <div className="App">
-//                     <Navbar />
-//                     <Switch>
-//                     <Route exact path="/" component={Home}/>
-//                     <Route path="/explore" component={Explore}/>
-//                     {/* <Route path="/team" component={Team}/> */}
-//                     </Switch>
-//                     <Footer />
-//                 </div>
-//             </Router>
-//         )
-//     }
+  // export default class LandingPage extends Component {
+  //     render() {
+  //         return (
+  //             <Router>
+  //                 <div className="App">
+  //                     <Navbar />
+  //                     <Switch>
+  //                     <Route exact path="/" component={Home}/>
+  //                     <Route path="/explore" component={Explore}/>
+  //                     {/* <Route path="/team" component={Team}/> */}
+  //                     </Switch>
+  //                     <Footer />
+  //                 </div>
+  //             </Router>
+  //         )
+  //     }
 }
