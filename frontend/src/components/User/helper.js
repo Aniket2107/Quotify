@@ -11,7 +11,7 @@ export const getCategories = () => {
 };
 
 export const createProduct = (userId, token, quotePost) => {
-  return fetch(`${API}/product/create/${userId}`, {
+  return fetch(`${API}/quote/create/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Multiselect } from "multiselect-react-dropdown";
 import { isAuthenticated } from "../Auth/helper";
+import { getCategories } from "./helper";
 
 const AddQuote = () => {
   const { user, token } = isAuthenticated();
@@ -14,36 +15,38 @@ const AddQuote = () => {
     success: false,
   });
 
+  const [objectArray, setObjectArray] = useState([]);
+
   const { quote, categories, author, error, success } = values;
 
-  const objectArray = [
-    { key: "Option 1", cat: "Group 1", id: "nice" },
-    { key: "Option 2", cat: "Group 1" },
-    { key: "Option 3", cat: "Group 1" },
-    { key: "Option 4", cat: "Group 1" },
-    { key: "Option 5", cat: "Group 1" },
-    { key: "Option 6", cat: "Group 1" },
-    { key: "Option 7", cat: "Group 1" },
-  ];
+  useEffect(() => {
+    preload();
+  }, []);
+
+  const preload = () => {
+    let temp = [];
+    getCategories()
+      .then((data) => {
+        data.map((obj) => {
+          temp = temp.concat({
+            key: obj.categoryName,
+            cat: "Group 1",
+            _id: obj._id,
+          });
+        });
+        // console.log(temp);
+        setObjectArray(temp.slice());
+        // console.log(objectArray);
+      })
+      .catch((err) => setValues({ ...values, error: err }));
+  };
 
   const categorySelect = (selectedList, selectedItem) => {
     //console.log(selectedItem);
     setValues({
       ...values,
-      categories: categories.concat(selectedItem.key),
+      categories: categories.concat(selectedItem._id),
     });
-
-    {
-      /*Alternative*/
-    }
-
-    // selectedList.map((obj) => {
-    //   //console.log(obj.key);
-    //   setValues({
-    //     ...values,
-    //     categories: [...categories, obj.key],
-    //   });
-    // });
   };
 
   const handleChange = (quote) => (event) => {
@@ -54,6 +57,7 @@ const AddQuote = () => {
     e.preventDefault();
 
     console.log(values);
+    // console.log(objectArray);
   };
 
   const quoteForm = () => (
