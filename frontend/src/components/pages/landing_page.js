@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../../components/sections/home";
 import Explore from "../../components/sections/explore";
 import Navbar from "../../components/elements/navbar";
-import SignIn from "../Auth/Signin";
-import SignUp from "../Auth/Signup";
+import Signin from "../Auth/Signin";
+import Signup from "../Auth/Signup";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import UserRoute from "../PrivateRoutes/UserRoute";
 import adminDashboard from "../Admin/adminDashboard";
@@ -20,11 +20,15 @@ export default class LandingPage extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/explore" component={Explore} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/signin" component={Signin} />
             <Route path="/create/quote" component={AddQuote} />
-            <UserRoute path="/user/profile" component={userDashboard} />
-            <AdminRoute path="/admin/profile" component={adminDashboard} />
+            <UserRoute path="/user/profile" exact component={userDashboard} />
+            <AdminRoute
+              path="/admin/profile"
+              exact
+              component={adminDashboard}
+            />
             {/* <Route path="/team" component={Team}/> */}
           </Switch>
         </div>

@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { signin, authenticate, isAuthenticated } from "./helper";
 import { Redirect, Link } from "react-router-dom";
-import '../../assets/styles/accounts.css';
+import "../../assets/styles/accounts.css";
 // Styles
 
 const formContainerStyle = {
-  height: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: 'auto'
-}
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "auto",
+};
 
 const formStyle = {
-  width:'500px',
-  maxWidth: '500px',
-  padding: '40px 20px',
-  background: 'rgba(0,0,0,.8)',
-  boxShadow: '0px 0 20px black'
-}
+  width: "500px",
+  maxWidth: "500px",
+  padding: "40px 20px",
+  background: "rgba(0,0,0,.8)",
+  boxShadow: "0px 0 20px black",
+};
 
 // styles end
 
@@ -54,7 +54,7 @@ const Signin = () => {
           });
         }
       })
-      .catch(console.log("signin request failed"));
+      .catch(() => console.log("signin request failed"));
   };
 
   //Todo
@@ -101,7 +101,10 @@ const Signin = () => {
   const notaUser = () => {
     return (
       <div className="">
-        Not a user? <Link to="/signup" className='text-info'>Signup here</Link>
+        Not a user?{" "}
+        <Link to="/signup" className="text-info">
+          Signup here
+        </Link>
       </div>
     );
   };
@@ -111,7 +114,7 @@ const Signin = () => {
       <div className="row">
         <div className="col-md-12 text-left">
           <h1>Sign In</h1>
-          <br/>
+          <br />
           <form>
             <div className="form-group">
               <label className="text-white">Username</label>
@@ -132,11 +135,14 @@ const Signin = () => {
                 type="password"
               />
             </div>
-            <br/>
-            <button onClick={onSubmit} className="btn btn-outline-dark btn-block">
+            <br />
+            <button
+              onClick={onSubmit}
+              className="btn btn-outline-dark btn-block"
+            >
               Submit
             </button>
-            <br/>
+            <br />
           </form>
         </div>
       </div>

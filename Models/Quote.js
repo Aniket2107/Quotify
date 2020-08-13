@@ -20,7 +20,11 @@ const quoteSchema = new mongoose.Schema(
     },
     background: {
       type: String,
-      default: "blue",
+      default: "#4d4d4e",
+    },
+    color: {
+      type: String,
+      default: "white",
     },
   },
   { timestamps: true }
