@@ -3,11 +3,17 @@ import { isAuthenticated } from "../Auth/helper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Modal, Button } from "react-bootstrap";
+import { createFavourite } from "./helper/helper";
 
 const Quote = (props) => {
   const [clicked, setClicked] = useState(false);
   const [show, setShow] = useState(false);
-  //const [favourite,setFavourite] = useState({});
+  const [favourite, setFavourite] = useState({
+    user: "",
+    quote: "",
+  });
+
+  const { user, token } = isAuthenticated();
 
   const QuoteStyle = {
     background: `${props.background || "white"}`,
@@ -23,8 +29,10 @@ const Quote = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const addtoFavourite = () => {
-    console.log("Yeah quote added to favourite!!");
+  const addtoFavourite = (fav) => {
+    setFavourite({ user: user._id, quote: fav });
+    // createFavourite(user._id,token,favourite)
+    console.log(favourite);
     handleClose();
   };
 
@@ -54,7 +62,7 @@ const Quote = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             X
           </Button>
-          <Button variant="primary" onClick={addtoFavourite}>
+          <Button variant="primary" onClick={() => addtoFavourite(props._id)}>
             Yes
           </Button>
         </Modal.Footer>

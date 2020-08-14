@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    //input categories here...
     interests: {
       type: Array,
       default: [],

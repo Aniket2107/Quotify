@@ -29,3 +29,15 @@ export const getQuoteByCategory = (categoryId) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createFavourite = (userId, token, favourite) => {
+  return fetch(`${API}favourite/create/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(favourite),
+  });
+};
