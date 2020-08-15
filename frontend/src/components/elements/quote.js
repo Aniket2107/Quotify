@@ -6,33 +6,44 @@ import { Modal, Button } from "react-bootstrap";
 import { createFavourite } from "./helper/helper";
 
 const Quote = (props) => {
+  const { user, token } = isAuthenticated();
+
   const [clicked, setClicked] = useState(false);
   const [show, setShow] = useState(false);
   const [favourite, setFavourite] = useState({
-    user: "",
+    user: user ? user._id : "",
     quote: "",
   });
-
-  const { user, token } = isAuthenticated();
 
   const QuoteStyle = {
     background: `${props.background || "white"}`,
     color: `${props.color || "black"}`,
   };
 
-  const toggleClass = () => {
+  const toggleClass = (favId) => {
     let undo = !clicked;
     setClicked(undo);
-    handleShow();
+    handleShow(favId);
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShow(false);
+    setFavourite({ ...favourite, quote: "" });
+  };
 
-  const addtoFavourite = (fav) => {
-    setFavourite({ user: user._id, quote: fav });
-    // createFavourite(user._id,token,favourite)
-    console.log(favourite);
+  const handleShow = (favId) => {
+    setShow(true);
+    setFavourite({ ...favourite, quote: favId });
+  };
+
+  const addtoFavourite = (favId) => {
+    setFavourite({ ...favourite, quote: favId });
+
+    createFavourite(user._id, token, favourite)
+      .then(() => console.log("Hurray fav added"))
+      .catch((err) => console.log(err));
+    console.log(`userId is ${favourite.userFav}`);
+    console.log(`userId is ${favourite.quote}`);
     handleClose();
   };
 
@@ -44,7 +55,7 @@ const Quote = (props) => {
             style={{
               color: clicked ? "red" : "white",
             }}
-            onClick={toggleClass}
+            onClick={() => toggleClass(props._id)}
             icon={faHeart}
           />
         )}
