@@ -1,10 +1,72 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { isAuthenticated } from "../Auth/helper";
 
 const adminDashboard = () => {
+  const { user } = isAuthenticated();
+
+  const leftSide = () => {
+    return (
+      <div className="card">
+        <h4 className="card-header bg-dark text-white">Admin Navigation</h4>
+        <ul className="list-group">
+          <li className="list-group-item">
+            <Link to="/admin/create/category" className="nav-link text-success">
+              Create Category
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link
+              to="/admin/manage/categories"
+              className="nav-link text-success"
+            >
+              Manage Category
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link to="/admin/manage/quotes" className="nav-link text-success">
+              Manage quotes
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link to="/admin/manage/users" className="nav-link text-success">
+              Users
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
+  };
+
+  const rightSide = () => {
+    return (
+      <div className="card">
+        <h4 className="card-header">Admin Information</h4>
+        <ul className="list-group">
+          <li className="list-group-item">
+            <span className="badge badge-success mr-2 ">Username:</span>
+            {user.username}
+          </li>
+          <li className="list-group-item">
+            <span className="badge badge-success mr-2 ">Email:</span>
+            {user.email}
+          </li>
+          <li className="list-group-item">
+            <span className="badge badge-danger">Admin area</span>
+          </li>
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <div>
-      {/* just for testing and further scope */}
-      <h1>Admin Dashboard</h1>
+      <h2>Welcome Admin</h2>
+      <span>Manage your app here</span>
+      <div className="row">
+        <div className="col-3">{leftSide()}</div>
+        <div className="col-8">{rightSide}</div>
+      </div>
     </div>
   );
 };

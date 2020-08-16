@@ -22,7 +22,7 @@ export default class LandingPage extends Component {
             <Route path="/explore" component={Explore} />
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
-            <Route path="/create/quote" component={AddQuote} />
+            <UserRoute path="/create/quote" component={AddQuote} />
             <UserRoute path="/user/profile" exact component={userDashboard} />
             <AdminRoute
               path="/admin/profile"
