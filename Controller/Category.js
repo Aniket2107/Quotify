@@ -22,6 +22,10 @@ exports.getAllCategories = (req, res) => {
   });
 };
 
+exports.getCategory = (req, res) => {
+  return res.json(req.category);
+};
+
 exports.createCategory = (req, res) => {
   const newCategory = new Category(req.body);
 

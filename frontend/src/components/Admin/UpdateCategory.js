@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../Auth/helper";
-import { createCategory } from "./helper";
+import { updateCategory, getCategoryById } from "./helper";
+import { Link } from "react-router-dom";
 
-const CreateCategory = () => {
-  const [values, Setvalues] = useState({
+const UpdateCategory = ({ match }) => {
+  const [values, setValues] = useState({
     categoryName: "",
     background: "",
     error: "",
@@ -14,31 +14,39 @@ const CreateCategory = () => {
   const { categoryName, background, error, success } = values;
   const { user, token } = isAuthenticated();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    preload(match.params.categoryId);
+  }, []);
 
-    createCategory(user._id, token, values).then((data) => {
-      if (data.error) {
-        Setvalues({ ...values, error: data.error });
-      } else {
-        Setvalues({
-          ...values,
-          categoryName: "",
-          background: "",
-          error: "",
-          success: "Category created sucessfully..",
-        });
-      }
-    });
+  const preload = (categoryId) => {
+    getCategoryById(categoryId)
+      .then((data) => {
+        if (data.error) {
+          setValues({ ...values, error: data.error });
+        } else {
+          setValues({
+            ...values,
+            categoryName: data.categoryName,
+            background: data.background,
+            error: "",
+            success: "Category updated sucessfully..",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (categoryName) => (event) => {
-    Setvalues({
+    setValues({
       ...values,
       error: false,
       success: "",
       [categoryName]: event.target.value,
     });
+  };
+
+  const onSubmit = () => {
+    console.log("updated");
   };
 
   const categoryForm = () => {
@@ -127,4 +135,4 @@ const CreateCategory = () => {
   );
 };
 
-export default CreateCategory;
+export default UpdateCategory;

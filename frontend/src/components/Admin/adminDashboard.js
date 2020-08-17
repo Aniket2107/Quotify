@@ -5,8 +5,6 @@ import { isAuthenticated } from "../Auth/helper";
 const adminDashboard = () => {
   const { user } = isAuthenticated();
 
-  console.log();
-
   const leftSide = () => {
     return (
       <div className="card">

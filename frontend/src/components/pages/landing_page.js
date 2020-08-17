@@ -10,6 +10,9 @@ import UserRoute from "../PrivateRoutes/UserRoute";
 import adminDashboard from "../Admin/adminDashboard";
 import userDashboard from "../User/userDashboard";
 import AddQuote from "../User/AddQuote";
+import CreateCategory from "../Admin/CreateCategory";
+import ManageCategory from "../Admin/ManageCategory";
+import UpdateCategory from "../Admin/UpdateCategory";
 
 export default class LandingPage extends Component {
   render() {
@@ -28,6 +31,21 @@ export default class LandingPage extends Component {
               path="/admin/profile"
               exact
               component={adminDashboard}
+            />
+            <AdminRoute
+              path="/admin/create/category"
+              exact
+              component={CreateCategory}
+            />
+            <AdminRoute
+              path="/admin/manage/categories"
+              exact
+              component={ManageCategory}
+            />
+            <AdminRoute
+              path="/admin/edit/category/:categoryId"
+              exact
+              component={UpdateCategory}
             />
             {/* <Route path="/team" component={Team}/> */}
           </Switch>
