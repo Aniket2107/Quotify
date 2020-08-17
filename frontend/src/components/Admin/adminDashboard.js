@@ -5,10 +5,12 @@ import { isAuthenticated } from "../Auth/helper";
 const adminDashboard = () => {
   const { user } = isAuthenticated();
 
+  console.log();
+
   const leftSide = () => {
     return (
       <div className="card">
-        <h4 className="card-header bg-dark text-white">Admin Navigation</h4>
+        <h4 className="card-header">Admin Navigation</h4>
         <ul className="list-group">
           <li className="list-group-item">
             <Link to="/admin/create/category" className="nav-link text-success">
@@ -60,12 +62,12 @@ const adminDashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome Admin</h2>
-      <span>Manage your app here</span>
+    <div className="container" style={{ marginTop: "100px" }}>
+      <h2 className="text-center">Welcome Admin</h2>
+      <p className="text-center">Manage your app here</p>
       <div className="row">
-        <div className="col-3">{leftSide()}</div>
-        <div className="col-8">{rightSide}</div>
+        <div className="col-md-3 col-10">{leftSide()}</div>
+        <div className="col-md-8 col-10">{rightSide()}</div>
       </div>
     </div>
   );

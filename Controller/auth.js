@@ -5,7 +5,6 @@ const ExpressJwt = require("express-jwt");
 require("dotenv").config();
 
 exports.signUp = async (req, res) => {
-
   //Validation
   const errors = validationResult(req);
   console.log(errors);
@@ -14,8 +13,9 @@ exports.signUp = async (req, res) => {
       .status(400)
       .json({ error: errors.array()[0].msg, prms: errors.array()[0].param });
 
-  const usernameExists = await User.findOne({username : req.body.username});
-  if(usernameExists) return res.status(400).json({error:'Username already exists'});
+  const usernameExists = await User.findOne({ username: req.body.username });
+  if (usernameExists)
+    return res.status(400).json({ error: "Username already exists" });
 
   const newUser = new User(req.body);
 
@@ -56,8 +56,8 @@ exports.signIn = (req, res) => {
     res.cookie("token", token, { expire: new Date() + 100 });
 
     //Send response to frontend
-    const { _id, username, role } = user;
-    return res.json({ token, user: { _id, username, role } });
+    const { _id, username, email, role } = user;
+    return res.json({ token, user: { _id, username, email, role } });
   });
 };
 
