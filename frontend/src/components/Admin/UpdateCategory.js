@@ -142,7 +142,7 @@ const UpdateCategory = ({ match }) => {
   return (
     <div style={{ marginTop: "100px" }}>
       <h2 className="text-center">Welcome Admin</h2>
-      <p className="text-center">Create category here</p>
+      <p className="text-center">Update category here</p>
       {/* design a error and success msg */}
       {errorMessage()}
       {successMessage()}

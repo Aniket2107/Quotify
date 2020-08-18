@@ -54,15 +54,17 @@ const ManageCategory = () => {
         <table className="table">
           <thead className="thead-light">
             <tr>
+              <th>#</th>
               <th>Category Name</th>
               <th>Background</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {categories.map((category) => {
+            {categories.map((category, idx) => {
               return (
                 <tr key={category._id}>
+                  <td>{idx + 1}</td>
                   <td>{category.categoryName}</td>
                   <td>{category.background}</td>
                   <td>

@@ -13,6 +13,8 @@ import AddQuote from "../User/AddQuote";
 import CreateCategory from "../Admin/CreateCategory";
 import ManageCategory from "../Admin/ManageCategory";
 import UpdateCategory from "../Admin/UpdateCategory";
+import ManageUsers from "../Admin/ManageUsers";
+import ManageQuotes from "../Admin/ManageQuotes";
 
 export default class LandingPage extends Component {
   render() {
@@ -46,6 +48,16 @@ export default class LandingPage extends Component {
               path="/admin/edit/category/:categoryId"
               exact
               component={UpdateCategory}
+            />
+            <AdminRoute
+              path="/admin/manage/users"
+              exact
+              component={ManageUsers}
+            />
+            <AdminRoute
+              path="/admin/manage/quotes"
+              exact
+              component={ManageQuotes}
             />
             {/* <Route path="/team" component={Team}/> */}
           </Switch>

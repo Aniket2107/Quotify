@@ -65,3 +65,42 @@ export const updateCategory = (userId, token, catId, category) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getAllUsers = (userId, token) => {
+  return fetch(`${API}users/${userId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteUser = (userId, token, delId) => {
+  return fetch(`${API}user/${userId}/${delId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteQuote = (userId, token, quoteId) => {
+  return fetch(`${API}quote/delete/${quoteId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
+};
