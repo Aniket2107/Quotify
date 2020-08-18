@@ -29,7 +29,7 @@ const UpdateCategory = ({ match }) => {
             categoryName: data.categoryName,
             background: data.background,
             error: "",
-            success: "Category updated sucessfully..",
+            success: "",
           });
         }
       })
@@ -45,8 +45,24 @@ const UpdateCategory = ({ match }) => {
     });
   };
 
-  const onSubmit = () => {
-    console.log("updated");
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    updateCategory(user._id, token, match.params.categoryId, values).then(
+      (data) => {
+        if (data.error) {
+          setValues({ ...values, error: data.error });
+        } else {
+          setValues({
+            ...values,
+            categoryName: "",
+            background: "",
+            error: "",
+            success: "Category updated sucessfully..",
+          });
+        }
+      }
+    );
   };
 
   const categoryForm = () => {
