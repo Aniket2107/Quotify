@@ -15,6 +15,7 @@ import ManageCategory from "../Admin/ManageCategory";
 import UpdateCategory from "../Admin/UpdateCategory";
 import ManageUsers from "../Admin/ManageUsers";
 import ManageQuotes from "../Admin/ManageQuotes";
+import NotFound from "../elements/NotFound";
 
 export default class LandingPage extends Component {
   render() {
@@ -25,9 +26,9 @@ export default class LandingPage extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/explore" component={Explore} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/signin" component={Signin} />
-            <UserRoute path="/create/quote" component={AddQuote} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="/signin" exact component={Signin} />
+            <UserRoute path="/create/quote" exact component={AddQuote} />
             <UserRoute path="/user/profile" exact component={userDashboard} />
             <AdminRoute
               path="/admin/profile"
@@ -59,6 +60,7 @@ export default class LandingPage extends Component {
               exact
               component={ManageQuotes}
             />
+            <Route component={NotFound} />
             {/* <Route path="/team" component={Team}/> */}
           </Switch>
         </div>

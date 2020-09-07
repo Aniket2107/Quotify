@@ -74,13 +74,6 @@ const ManageQuotes = () => {
                   </td>
                   <td>{qute.postedBy}</td>
                   <td>
-                    <Link
-                      to={`/admin/edit/qute/${qute._id}`}
-                      className="text-info"
-                    >
-                      Edit
-                    </Link>
-                    |
                     <a
                       style={{ cursor: "pointer" }}
                       onClick={() => removequote(qute._id)}
