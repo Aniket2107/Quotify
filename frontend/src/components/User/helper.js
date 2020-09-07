@@ -10,6 +10,22 @@ export const getCategories = () => {
     .catch((err) => console.log(err));
 };
 
+export const updateUser = (userId, token, userBody) => {
+  return fetch(`${API}user/${userId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(userBody),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 export const createQuote = (userId, token, quote) => {
   return fetch(`${API}quote/create/${userId}`, {
     method: "POST",
@@ -52,6 +68,34 @@ export const updateQuote = (userId, token, quoteId, quoteBody) => {
   })
     .then((response) => {
       return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getUserFavourite = (userId, token) => {
+  return fetch(`${API}favourites/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const delUserFavourite = (userId, token, favId) => {
+  return fetch(`${API}favourite/remove/${userId}/${favId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return res.json();
     })
     .catch((err) => console.log(err));
 };

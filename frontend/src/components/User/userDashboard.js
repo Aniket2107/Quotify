@@ -7,6 +7,7 @@ const userDashboard = () => {
       <h1>Welcome User!</h1>
       <Link to="/create/quote">
         <buton className="btn">Add Quote</buton>
+        <p>Update user isAdult favourites interests </p>
       </Link>
     </div>
   );
