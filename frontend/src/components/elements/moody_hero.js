@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Typed from 'react-typed';
+import {Link} from 'react-router-dom';
 
 export default class MoodyHero extends Component {
     render() {
@@ -23,7 +24,7 @@ export default class MoodyHero extends Component {
                      >
                 </Typed>
                 <h1> Get a quote for every emotion</h1>
-                <p></p>
+                <Link to="/signup"><button type="button" class="btn btn-dark">GET STARTED</button></Link>
             </section>
         )
     }

@@ -10,7 +10,6 @@ export default class Home extends Component {
         <React.Fragment>
           <Hero />
           <MoodyHero />
-          <Services />
         </React.Fragment>
       );
     }

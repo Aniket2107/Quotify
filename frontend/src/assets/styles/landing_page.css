@@ -74,11 +74,16 @@ html,body{
 }
 .moody{
     height: 100vh;
-    font-family: comfortaa
-    ;
+    font-family: comfortaa;
     font-size: 5rem;
     background: url('../images/Moody_hero_bg.jpg');
     background-size: cover;
+}
+
+.moody .btn{
+    font-size: 1.5rem;
+    padding: 16px 32px;
+    margin-top: 20px;
 }
 
 .services_heading{

@@ -50,20 +50,22 @@ const Quote = (props) => {
   return (
     <div className="col-md-4 col-sm-12">
       <div className="card quote" style={QuoteStyle}>
-        {isAuthenticated() && (
-          <FontAwesomeIcon
-            style={{
-              color: clicked ? "red" : "white",
-            }}
-            onClick={() => toggleClass(props._id)}
-            icon={faHeart}
-          />
-        )}
         <div className="card-body">
           <h4 className="card-title">{props.quote}</h4>
           <div className="card-author">
             <p className="card-text">~{props.author}</p>
           </div>
+          <h4>
+            {isAuthenticated() && (
+              <FontAwesomeIcon
+                style={{
+                  color: clicked ? "red" : "white",
+                }}
+                onClick={() => toggleClass(props._id)}
+                icon={faHeart}
+              />
+            )}
+          </h4>
         </div>
       </div>
       <Modal show={show} onHide={handleClose}>
@@ -71,7 +73,7 @@ const Quote = (props) => {
         <Modal.Body>Add to favourites ?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            X
+            No
           </Button>
           <Button variant="primary" onClick={() => addtoFavourite(props._id)}>
             Yes
