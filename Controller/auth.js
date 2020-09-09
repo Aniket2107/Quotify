@@ -7,7 +7,7 @@ require("dotenv").config();
 exports.signUp = async (req, res) => {
   //Validation
   const errors = validationResult(req);
-  console.log(errors);
+  // console.log(errors);
   if (!errors.isEmpty())
     return res
       .status(400)
@@ -53,7 +53,7 @@ exports.signIn = (req, res) => {
     //Create token and save in cookies
     const token = jwt.sign({ _id: user._id }, process.env.SECRET);
 
-    res.cookie("token", token, { expire: new Date() + 100 });
+    res.cookie("token", token, { expire: new Date() + 1 });
 
     //Send response to frontend
     const { _id, username, email, role } = user;

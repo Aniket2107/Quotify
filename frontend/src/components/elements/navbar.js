@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../assets/styles/nav.css";
+import { isAuthenticated, signout } from "../Auth/helper";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
     this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -10,6 +11,7 @@ export default class Navbar extends Component {
       collapsed: true,
     };
   }
+
   toggleNavbar() {
     this.setState({
       collapsed: !this.state.collapsed,
@@ -43,12 +45,39 @@ export default class Navbar extends Component {
               <Link to="/team">
                 <li className="nav-item nav-link active">Team</li>
               </Link>
-              <Link to="/signin">
-                <li className="nav-item nav-link active">Sign In</li>
-              </Link>
-              <Link to="/signup">
+              {!isAuthenticated() && (
+                <Link to="/signin">
+                  <li className="nav-item nav-link active">Sign In</li>
+                </Link>
+              )}
+              {isAuthenticated() && isAuthenticated().user.role === 0 && (
+                <Link to="/user/profile">
+                  <li className="nav-item nav-link active">Profile</li>
+                </Link>
+              )}
+              {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                <Link to="/admin/profile">
+                  <li className="nav-item nav-link active">Admin Dashboard</li>
+                </Link>
+              )}
+              {isAuthenticated() && (
+                <Link>
+                  <li
+                    style={{ cursor: "pointer" }}
+                    className="text-warning nav-item nav-link active"
+                    onClick={() => {
+                      signout(() => {
+                        this.props.history.push("/");
+                      });
+                    }}
+                  >
+                    SignOut
+                  </li>
+                </Link>
+              )}
+              {/* <Link to="/signup">
                 <li className="nav-item nav-link active">Sign Up</li>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -56,3 +85,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default withRouter(Navbar);

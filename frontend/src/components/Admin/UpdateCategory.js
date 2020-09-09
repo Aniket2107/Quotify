@@ -10,6 +10,7 @@ const UpdateCategory = ({ match }) => {
     error: "",
     success: "",
   });
+  const [updated, setUpdated] = useState("");
 
   const { categoryName, background, error, success } = values;
   const { user, token } = isAuthenticated();
@@ -51,15 +52,9 @@ const UpdateCategory = ({ match }) => {
     updateCategory(user._id, token, match.params.categoryId, values).then(
       (data) => {
         if (data.error) {
-          setValues({ ...values, error: data.error });
+          setUpdated("Error updating category");
         } else {
-          setValues({
-            ...values,
-            categoryName: "",
-            background: "",
-            error: "",
-            success: "Category updated sucessfully..",
-          });
+          setUpdated("Category updated sucessfully..");
         }
       }
     );
@@ -122,9 +117,9 @@ const UpdateCategory = ({ match }) => {
         <div className="col-md-6 offset-sm-3 text-left">
           <div
             className="alert alert-success"
-            style={{ display: success ? "" : "none" }}
+            style={{ display: updated ? "" : "none" }}
           >
-            {success}
+            {updated}
           </div>
         </div>
       </div>
