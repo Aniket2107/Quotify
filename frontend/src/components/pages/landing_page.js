@@ -8,7 +8,7 @@ import Signup from "../Auth/Signup";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import UserRoute from "../PrivateRoutes/UserRoute";
 import adminDashboard from "../Admin/adminDashboard";
-import userDashboard from "../User/userDashboard";
+import UserDashboard from "../User/UserDashboard";
 import AddQuote from "../User/AddQuote";
 import CreateCategory from "../Admin/CreateCategory";
 import ManageCategory from "../Admin/ManageCategory";
@@ -29,7 +29,7 @@ export default class LandingPage extends Component {
             <Route path="/signup" exact component={Signup} />
             <Route path="/signin" exact component={Signin} />
             <UserRoute path="/create/quote" exact component={AddQuote} />
-            <UserRoute path="/user/profile" exact component={userDashboard} />
+            <UserRoute path="/user/profile" exact component={UserDashboard} />
             <AdminRoute
               path="/admin/profile"
               exact

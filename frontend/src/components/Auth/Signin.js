@@ -86,7 +86,7 @@ const Signin = () => {
   const errorMessage = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-12 text-left">
           <div
             className="alert alert-danger"
             style={{ display: error ? "" : "none" }}
@@ -115,6 +115,8 @@ const Signin = () => {
         <div className="col-md-12 text-left">
           <h1>Sign In</h1>
           <br />
+          {loadingMessage()}
+          {errorMessage()}
           <form>
             <div className="form-group">
               <label className="text-white">Username</label>
@@ -152,8 +154,6 @@ const Signin = () => {
   return (
     <div className="form-container" style={formContainerStyle}>
       <div style={formStyle}>
-        {loadingMessage()}
-        {errorMessage()}
         {signInForm()}
         {notaUser()}
         {performRedirect()}

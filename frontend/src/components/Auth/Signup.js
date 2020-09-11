@@ -107,7 +107,7 @@ const SignUp = () => {
   const successMessage = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-12 text-left">
           <div
             className="alert alert-success"
             style={{ display: success ? "" : "none" }}

@@ -43,7 +43,7 @@ exports.signIn = (req, res) => {
   User.findOne({ username }, (err, user) => {
     if (err) return res.status(400).json({ error: err });
 
-    if (!user) return res.status(400).json({ error: "User not fouond" });
+    if (!user) return res.status(400).json({ error: "User not found" });
 
     if (!user.authenticate(password))
       return res

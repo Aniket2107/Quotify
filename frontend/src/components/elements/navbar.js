@@ -61,7 +61,7 @@ class Navbar extends Component {
                 </Link>
               )}
               {isAuthenticated() && (
-                <Link>
+                <Link to="">
                   <li
                     style={{ cursor: "pointer" }}
                     className="text-warning nav-item nav-link active"

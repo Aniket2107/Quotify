@@ -58,7 +58,7 @@ const AddQuote = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(values);
+    // console.log(values);
     createQuote(user._id, token, values).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
