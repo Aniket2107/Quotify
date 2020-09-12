@@ -69,7 +69,7 @@ exports.signOut = (req, res) => {
 };
 
 exports.isSignedIn = ExpressJwt({
-  secret: process.env.SECRET,
+  secret: "aniketquotify",
   userProperty: "auth",
 });
 
