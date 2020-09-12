@@ -12,6 +12,7 @@ import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { getUserFavourite } from "./helper";
 import Quote from '../elements/quote'
 import Spinner from "react-bootstrap/Spinner";
+import Favourites from "../elements/Favourites";
 
 const {user, token} = isAuthenticated();
 
@@ -69,6 +70,7 @@ function FavouritesList() {
           // _id={quote._id}
         />
       ))}
+      <Favourites />
     </div>
   );
 }
