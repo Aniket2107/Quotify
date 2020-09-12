@@ -42,9 +42,6 @@ class Navbar extends Component {
               <Link to="/explore">
                 <li className="nav-item nav-link active">Explore</li>
               </Link>
-              <Link to="/team">
-                <li className="nav-item nav-link active">Team</li>
-              </Link>
               {!isAuthenticated() && (
                 <Link to="/signin">
                   <li className="nav-item nav-link active">Sign In</li>
