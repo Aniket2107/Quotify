@@ -64,7 +64,15 @@ function ProfileCard(props) {
                 <input
                   type="text"
                   className="form-control"
-                  style={{ width: "100%", margin: 0, fontSize: "20px" }}
+                  style={{
+                    width: "100%", 
+                    margin: 0, 
+                    fontSize: "20px",
+                    border: "none",
+                    borderBottom: "1px solid white",
+                    background: "rgba(255,255,255,.1)",
+                    color: "white",
+                    borderRadius: "0px", }}
                   onChange={(e) => {
                     setUserBody({ ...userBody, username: e.target.value });
                   }}

@@ -19,11 +19,11 @@ const { user, token } = isAuthenticated();
 function SpecificQuotesList() {
   return (
     <div>
-      <div className="float-left w-100">
+      <div className="float-md-left float-sm-none w-100">
         <div className="text-white float-left">
           <h1>Your Quotes</h1>
         </div>
-        <div className="text-white float-right">
+        <div className="text-white float-md-right float-sm-none">
           <h2>
             <Link to="/create/quote">
               <button type="button" className="btn btn-light">

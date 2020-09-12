@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Multiselect } from "multiselect-react-dropdown";
 import { isAuthenticated } from "../Auth/helper";
 import { getCategories, createQuote } from "./helper";
+import { Link } from "react-router-dom";
 
 const AddQuote = () => {
   const { user, token } = isAuthenticated();
@@ -97,7 +98,10 @@ const AddQuote = () => {
   );
 
   const quoteForm = () => (
-    <div className="container" style={{ marginTop: "300px" }}>
+    <div className="container" style={{ marginTop: "300px", maxWidth: "500px" }}>
+      <h1 className="my-4"> <Link to="/user/profile"><i class="fas fa-chevron-left text-dark fa-fw"></i></Link> Add New Quote</h1>
+      {errorMsg()}
+      {successMsg()}
       <form className="form-group">
         <label>Quote:</label>
         <input
@@ -112,6 +116,7 @@ const AddQuote = () => {
             borderRadius: "0px",
           }}
         />
+        <br />
         <label>Category</label>
         <Multiselect
           options={objectArray}
@@ -127,15 +132,21 @@ const AddQuote = () => {
             },
           }}
         />
+        <br />
         <label>Author </label>
         <input
           type="text"
           value={author}
           onChange={handleChange("author")}
           className="form-control"
+          style={{
+            border: "none",
+            borderBottom: "1px solid blue",
+            borderRadius: "0px",
+          }}
         />
         <br />
-        <button onClick={onSubmit} className="btn btn-primary form-control">
+        <button onClick={onSubmit} className="btn btn-primary w-100">
           Submit
         </button>
       </form>
@@ -145,8 +156,6 @@ const AddQuote = () => {
   return (
     <div>
       {/*Style the form and and messages */}
-      {errorMsg()}
-      {successMsg()}
       {quoteForm()}
     </div>
   );
