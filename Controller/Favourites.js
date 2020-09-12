@@ -13,10 +13,9 @@ exports.getFavbyId = (req, res, next, id) => {
 
 exports.getuserFavourites = (req, res) => {
   Favourite.find({ user: req.profile })
-    .populate("quote", "quote category author postedBy")
+    .populate("quote", "quote category author postedBy background color")
     .exec((err, favQt) => {
       if (err) return res.status(400), json({ error: err });
-
       res.send(favQt);
     });
 };
