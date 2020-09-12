@@ -37,6 +37,6 @@ app.use("/api", quoteRoute);
 app.use("/api", catRoute);
 app.use("/api", favRoute);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));

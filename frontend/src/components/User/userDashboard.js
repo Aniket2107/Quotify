@@ -12,6 +12,7 @@ import { getUserFavourite } from "./helper";
 import Quote from "../elements/quote";
 import QuotesList from "../elements/QuotesList";
 import Spinner from "react-bootstrap/Spinner";
+import Favourites from "../elements/Favourites";
 import { Link } from "react-router-dom";
 
 const { user, token } = isAuthenticated();
@@ -87,6 +88,7 @@ function FavouritesList() {
             _id={quote._id}
           />
         ))}
+        <Favourites />
       </div>
     </div>
   );

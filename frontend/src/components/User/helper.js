@@ -99,3 +99,5 @@ export const delUserFavourite = (userId, token, favId) => {
     })
     .catch((err) => console.log(err));
 };
+
+export default delUserFavourite;

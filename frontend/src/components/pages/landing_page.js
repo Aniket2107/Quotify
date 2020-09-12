@@ -8,7 +8,7 @@ import Signup from "../Auth/Signup";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import UserRoute from "../PrivateRoutes/UserRoute";
 import adminDashboard from "../Admin/adminDashboard";
-import UserDashboard from "../User/UserDashboard";
+import UserDashboard from "../User/userDashboard";
 import AddQuote from "../User/AddQuote";
 import CreateCategory from "../Admin/CreateCategory";
 import ManageCategory from "../Admin/ManageCategory";
