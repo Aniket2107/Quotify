@@ -27,10 +27,10 @@ const QuotesList = () => {
 
   const searchBar = () => {
     return (
-      <div classNames="form-group d-flex justify-content-center align-items-center">
+      <div className="form-group d-flex justify-content-center align-items-center">
         <input
           type="text"
-          classNames="form-control"
+          className="form-control"
           name="search_query"
           style={{
             maxWidth: "400px",
