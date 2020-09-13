@@ -26,7 +26,6 @@ export const updateUser = (userId, token, userBody) => {
     .catch((err) => console.log(err));
 };
 
-<<<<<<< HEAD
 export const getUserCred = (userId, token) => {
   return fetch(`${API}user/${userId}`, {
     method: "GET",
@@ -41,8 +40,6 @@ export const getUserCred = (userId, token) => {
     .catch((err) => console.log(err));
 };
 
-=======
->>>>>>> bb7299436dd890e6973cac064b10e259437855a9
 export const createQuote = (userId, token, quote) => {
   return fetch(`${API}quote/create/${userId}`, {
     method: "POST",
@@ -104,11 +101,7 @@ export const getUserFavourite = (userId, token) => {
 };
 
 export const delUserFavourite = (userId, token, favId) => {
-<<<<<<< HEAD
   return fetch(`${API}favourite/remove/${favId}/${userId}`, {
-=======
-  return fetch(`${API}favourite/remove/${userId}/${favId}`, {
->>>>>>> bb7299436dd890e6973cac064b10e259437855a9
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -120,8 +113,3 @@ export const delUserFavourite = (userId, token, favId) => {
     })
     .catch((err) => console.log(err));
 };
-<<<<<<< HEAD
-=======
-
-export default delUserFavourite;
->>>>>>> bb7299436dd890e6973cac064b10e259437855a9
