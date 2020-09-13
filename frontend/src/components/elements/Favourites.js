@@ -53,16 +53,23 @@ export function Favouritemodal({ _id }) {
 }
 
 function Favourites({ quote, author, background, color, _id }) {
+
+  const QuoteStyle = {
+    background: `${background || "white"}`,
+    color: `${color || "black"}`,
+  };
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{quote}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">- {author} </Card.Subtitle>
-        <Card.Text>
-          <Favouritemodal _id={_id} />
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="col-md-4 col-sm-12">
+      <div className="card quote" style={QuoteStyle}>
+        <div className="card-body">
+          <h4 className="card-title">{quote}</h4>
+          <div className="card-author">
+            <p className="card-text">~{author}</p>
+            <p className="card-text"><Favouritemodal _id={_id} /></p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

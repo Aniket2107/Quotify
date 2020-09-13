@@ -54,7 +54,7 @@ function FavouritesList() {
 
   useEffect(() => {
     getQuotes();
-  }, [quotes]);
+  }, []);
 
   const getQuotes = () => {
     setLoader(true);
@@ -72,27 +72,28 @@ function FavouritesList() {
   return (
     <div>
       <h1 className="text-white" align="left">
-        Favourites ;)
+        Favourites
       </h1>
-      <div className="row">
-        {/* Style this  */}
+      {/* <div className="row">
         {loader && (
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner>
         )}
         {quotes.map((quote) => (
+          // console.log(quote.quote.quote)
           <Favourites
-            quote={quote.quote.quote}
-            author={quote.quote.author}
-            background={quote.quote.background || "grey"}
-            color={quote.quote.color || "white"}
+            quote={quote.quote}
+            author={quote.author}
+            background={quote.background || "grey"}
+            color={quote.color || "white"}
             key={quote._id}
             _id={quote._id}
           />
         ))}
-        {/* <Favourites /> */}
-      </div>
+      </div> */}
+      
+      <QuotesList />
     </div>
   );
 }
