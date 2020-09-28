@@ -8,8 +8,6 @@ import { faTasks } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { getUserFavourite } from "./helper";
-import Quote from "../elements/quote";
 import QuotesList from "../elements/QuotesList";
 import { Link } from "react-router-dom";
 import UserInterests from "../elements/UserInterests";

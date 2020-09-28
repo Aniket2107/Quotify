@@ -27,7 +27,7 @@ const QuotesList = () => {
 
   const searchBar = () => {
     return (
-      <div className="form-group d-flex justify-content-center align-items-center">
+      <div className="form-group w-100 d-flex justify-content-center align-items-center">
         <input
           type="text"
           className="form-control"
@@ -38,7 +38,7 @@ const QuotesList = () => {
             color: "white",
           }}
           id="search_query"
-          placeholder="Search for any category"
+          placeholder="Search for any quote"
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
