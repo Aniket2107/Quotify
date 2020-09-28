@@ -18,13 +18,14 @@ function ProfileCard(props) {
 
   const [userBody, setUserBody] = useState({
     username: isAuthenticated() ? isAuthenticated().user.username : "",
+    email: isAuthenticated() ? isAuthenticated().user.email : "",
     isAdult: false,
     loading: false,
     error: "",
     success: "",
   });
 
-  const { username, isAdult, loading, error, success } = userBody;
+  const { username, isAdult, email, loading, error, success } = userBody;
 
   const onEdit = (event) => {
     event.preventDefault();
@@ -140,7 +141,7 @@ function ProfileCard(props) {
             <h4>
               <span>Email</span>
               <br />
-              {user.email}
+              {email}
             </h4>
           </div>
 

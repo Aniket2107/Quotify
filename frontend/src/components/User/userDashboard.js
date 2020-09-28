@@ -11,10 +11,9 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { getUserFavourite } from "./helper";
 import Quote from "../elements/quote";
 import QuotesList from "../elements/QuotesList";
-import Spinner from "react-bootstrap/Spinner";
-import Favourites from "../elements/Favourites";
 import { Link } from "react-router-dom";
 import UserInterests from "../elements/UserInterests";
+import FavouritesList from "../elements/FavouriteList";
 
 const { user, token } = isAuthenticated();
 
@@ -48,54 +47,6 @@ function SpecificQuotesList() {
 //     </div>
 //   );
 // }
-function FavouritesList() {
-  const [quotes, setQuotes] = useState([]);
-  const [loader, setLoader] = useState(false);
-
-  useEffect(() => {
-    getQuotes();
-  }, [quotes]);
-
-  const getQuotes = () => {
-    setLoader(true);
-    getUserFavourite(user._id, token)
-      .then((res) => {
-        // console.log(res);
-        setQuotes(res);
-        setLoader(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  return (
-    <div>
-      <h1 className="text-white" align="left">
-        Favourites ;)
-      </h1>
-      <div className="row">
-        {/* Style this  */}
-        {loader && (
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        )}
-        {quotes.map((quote) => (
-          <Favourites
-            quote={quote.quote.quote}
-            author={quote.quote.author}
-            background={quote.quote.background || "grey"}
-            color={quote.quote.color || "white"}
-            key={quote._id}
-            _id={quote._id}
-          />
-        ))}
-        {/* <Favourites /> */}
-      </div>
-    </div>
-  );
-}
 
 function UserDashboard() {
   const [showQuotes, setShowQuotes] = useState(false);

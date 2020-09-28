@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card, Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -52,17 +52,21 @@ export function Favouritemodal({ _id }) {
   );
 }
 
-function Favourites({ quote, author, background, color, _id }) {
+function Favourites({ quote, author, _id }) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{quote}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">- {author} </Card.Subtitle>
-        <Card.Text>
-          <Favouritemodal _id={_id} />
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="container m-3">
+      <Card style={{ width: "22rem" }}>
+        <Card.Body>
+          <Card.Title>{quote ? quote : "Not found"}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            - {author ? author : "not found author"}
+          </Card.Subtitle>
+          <Card.Text>
+            <Favouritemodal _id={_id} />
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
